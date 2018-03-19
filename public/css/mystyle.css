@@ -1,0 +1,199 @@
+/* this section contains code for page we will perform actions like removing unwanted
+padding, margin , or providing custom padding or margin and some common style class
+*/
+html, body{
+    padding: 0;
+    margin: 0
+}
+
+.inline{
+    display: inline
+}
+
+.inline-block{
+    display: inline-block
+}
+
+.crimson-color{
+    color: crimson
+}
+
+.sec-division {
+    display: inline-block;
+}
+/* this section of code will contain style for header */
+
+header{
+    box-shadow: 0 1px 20px rgba(46, 61, 73, .2);
+    background-color: #212121;
+    border-bottom: solid 3px #9E9E9E;
+    padding: 20px 0 20px 20px;
+}
+
+#header-title-div{
+    width: 80%;
+    height: 70%;
+    padding: 10px;
+    font-weight: 100;
+    color: antiquewhite;
+    font-family: 'Architects Daughter', cursive;
+    font-size: large;
+    vertical-align: middle;
+}
+
+#header-login-btn-div{
+    padding: 10px;
+    width: 10%;
+    height: 70%;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#header-login-btn-div a{
+    color: antiquewhite;
+    text-decoration: none;
+    font-family: 'Architects Daughter', cursive;
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 500px){
+    #header-login-btn-div a{
+        display: none;
+    }
+}
+
+/* haeder code end */
+
+/* cover style: this area contains cover related style  */
+
+#cover-section{
+    margin: 0;
+    height: 70vh;
+    text-align: center;
+    overflow: hidden;
+    
+}
+
+#cover-section-container{
+    width: 100%;
+    height: 100%;
+    background: url('../images/image2.jpg') center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size:cover;
+    -webkit-transition: .5s ease-in-out;
+    -moz-transition: .5s ease-in-out;
+    -o-transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
+}
+
+#input-container{
+    margin-top: 25vh;
+    width: 60%;
+    padding: 15px 0 15px 0;
+    background:rgba(255,255,255,0.6);
+    opacity: 1;
+}
+
+#cover-section:hover #cover-section-container,
+#cover-section:focus #cover-section-container{
+    transform: scale(1.1);
+    -ms-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -o-transform: scale(1.2);
+}
+
+#search-reg-input{
+    width:50%;
+    padding: 5px;
+    height: 30px;
+    
+    color: gray;
+    font-weight: bolder;
+    font-size: 20;
+}
+
+@media only screen and (max-width: 500px){
+ 
+#input-container{
+    margin-top: 25vh;
+    width: 80%;
+    padding: 15px 0 15px 0;
+    background:rgba(255,255,255,0.6);
+    opacity: 1;
+}
+
+#search-reg-input{
+    width: 70%;
+    padding: 5px;
+    height: 30px;   
+    color: gray;
+    font-weight: bolder;
+    font-size: 20;
+}
+}
+
+/* cover area ended */
+
+/* this area contain code for both intro section */
+.intro-section{
+    min-height: 50vh;
+}
+
+#intro-1-section{
+    background-color: #455A64;
+    color: aliceblue;
+    border-bottom: solid 2px #790808;
+    border-top: solid 2px #790808;
+}
+
+#intro-2-section{
+    background-color: #f7f7f7;
+}
+
+.intro-section-div{
+    width: 45%;
+    display: inline-block;
+    text-align: center;
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-size: 20px;
+}
+
+
+@media only screen and (max-width: 500px){
+    .intro-section-div{
+        width: 100%;
+        display: block;
+        font-size: 15px;
+        margin: 0;
+    }
+    .intro-div-container{
+        margin: 0;
+    }
+}
+
+.intro-section-div h2{
+    color: #2196F3;
+    font-family: 'Shadows Into Light Two', cursive;
+}
+
+.intro-div-container{
+    padding: 8%;
+}
+/* intro sections end */
+
+/*styling footer */
+footer{
+    box-shadow: 0 1px 20px rgba(46, 61, 73, .2);
+    background-color: #000000;
+    font-family: 'Montserrat Alternates', sans-serif;
+    color: antiquewhite;
+    text-align: center;
+    border-top: solid 3px #9E9E9E;
+    padding: 20px;
+}
+/* Footer ends */
