@@ -18,8 +18,11 @@
   <link href="https://fonts.googleapis.com/css?family=Coda+Caption:800" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Montserrat+Alternates" rel="stylesheet">
 
+  <!-- importing our project javascript file -->
+  <script src="./javascripts/homePage.js"></script>
+
 </head>
-<body>
+<body onload = onPageLoad()>
 
 <!-- this set of code will comtain header code -->
 <header>
@@ -27,7 +30,7 @@
     <h1 class="inline"> Project <span class="crimson-color">X</span> </h1><!-- Name of the project -->
   </div>
   <div id='header-login-btn-div' class="inline-block">
-    <a href="#">
+    <a onclick= openLoginModal()>
       Login
     </a>
   </div>
@@ -48,6 +51,33 @@
   </div>
 </section>
 <!-- cover area ends -->
+
+<!-- section for login modal form-->
+<section id="id01" class="modal">
+
+  <form class="modal-content animate" >
+    <div class="imgcontainer">
+      <span onclick= closeLoginModal() class="close" title="Close Modal">&times;</span>
+      <img src="./images/loginModal.png" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+
+      <button type="submit">Login</button>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
+</section>
+<!--section for login modal form ended -->
 
 <!--intro 1(this section contain intro 1 of page)-->
 <section id="intro-1-section" class="intro-section">
