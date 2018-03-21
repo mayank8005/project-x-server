@@ -38,8 +38,8 @@ databaseConnection.connect(err=>{
 
     console.log('connected to database');
 
-    //creating authentication object
-    authentication.authenticationObjectCreator(databaseConnection);
+    //creating authentication object and setting it in authentication object variable
+    authentication.authenticationObject = authentication.authenticationObjectCreator(databaseConnection);
 
     /**
      * Create HTTP server.

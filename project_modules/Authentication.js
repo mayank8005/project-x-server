@@ -61,7 +61,7 @@ class Authentication {
     verifyUserPassword(username, unverfiedPassword, callback) {
 
         //checking for parameter related error
-        if (!username, !unverfiedPassword, !callback) {
+        if (!username || !unverfiedPassword || !callback) {
             //logging out error
             console.log('error invalid parameter passed in verify user passsword');
             return false;
@@ -82,7 +82,7 @@ class Authentication {
             }
 
             //checking validity of result or error in result
-            if(!verifiedPassword, verifiedPassword.length === 0){
+            if(!verifiedPassword || verifiedPassword.length === 0){
             //logging out problem, passing result in callback and terminating process
             console.log('no result found/blank result');
             callback(false);
@@ -90,7 +90,7 @@ class Authentication {
         }
 
         //checking unverfied password and storing result in result variable
-        const result = passwordHash.verify(unverfiedPassword, verifiedPassword);
+        const result = passwordHash.verify(unverfiedPassword, verifiedPassword[0].password);
 
         //passing result to callback function
         callback(result);
@@ -105,7 +105,7 @@ let authenticationObject = null;
     exporting necessary functions and variable
  */
 module.exports.authenticationObjectCreator = (connection)=>{
-    authenticationObject = new Authentication(connection)
+    return new Authentication(connection);
 };
 
 module.exports.authenticationObject = authenticationObject;
