@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
+
 //requiring authentication module
 const AuthenticationModule = require('../project_modules/Authentication');
 
@@ -26,11 +27,13 @@ router.post('/', (req, res)=>{
     //verifying username and password and giving appropriate reply password
     authenticator.verifyUserPassword(username, password, (result)=>{
         if(result) {
-            //setting up session
+            //saving username in session
             let userSession = req.session;
             userSession.uname = username;
             console.log(userSession.uname);
-            res.send('true');
+
+            //redirecting to dashboard
+            res.redirect('/dashboard')
         }
         else {
             res.send('false');
