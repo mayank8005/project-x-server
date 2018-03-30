@@ -16,18 +16,13 @@ class FineManager{
     }
 
     //this function will add/assign fine to any specific vehicle
-    addFine = (vehicleNo, amount, description, officerId)=>{
+     addFine(vehicleNo, amount, description, officerId, callback){
 
         //generating unique Fine id
         const FineId = uuid();
 
         //sql query for adding fine
-        const ADD_FINE_SQL = `INSERT INTO fine(FineID, vehicleNumber, amount, description, officerID) VALUES (
-                                                ${FineId},
-                                                ${vehicleNo},
-                                                ${amount},
-                                                ${description},
-                                                ${officerId}`;
+        const ADD_FINE_SQL = `INSERT INTO fine(FineID, vehicleNumber, amount, description, officerID) VALUES ('${FineId}', '${vehicleNo}', '${amount}', '${description}', '${officerId}')`;
 
         //executing ADD_FINE_SQL query
         this.connection.query(ADD_FINE_SQL, (err)=>{
@@ -35,12 +30,13 @@ class FineManager{
             //checking for error
             if(err){
                 //printing about error in console
+                console.log(err)
                 console.error('error executing ADD FINE SQL query');
-                return false;
+                callback(false);
             }else{
                 //printing in console about new entry add
                 console.info('fine added in database');
-                return true;
+                callback(true);
             }
         });
     };
@@ -51,10 +47,44 @@ class FineManager{
         vehicleNo: vehicle no who's fine list is to be found
         callback: callback function which will be called with result as its parameter/argument
      */
-    getFine = (vehicleNo, callback)=>{
+    getFines(vehicleNo, callback){
 
         //sql query for extracting fines on particular vehicle
-        const GET_FINE_SQL = `SELECT * from fine where vehicleNumber = '${vehicleNo}'`;
+        const GET_FINES_SQL = `SELECT * from fine where vehicleNumber = '${vehicleNo}'`;
+
+        //executing sql query
+        this.connection.query(GET_FINES_SQL, (err, result)=>{
+
+            //checking for error
+            if(err){
+                //printing on console about error
+                console.error('error: ERROR executing get fine sql query');
+                return false;
+            }
+
+            //checking for blank result
+            if(!result||result===''){
+                //printing on console about blank result
+                console.info('blank result obtain');
+                return false;
+            }
+
+            //giving result to callback function
+            callback(result);
+            return true;
+        })
+    };
+
+    //this function will give you fine
+    /*
+        parameter
+        Fine id: id of fine
+        callback: callback function which will be called with result as its parameter/argument
+     */
+    getFine(FineId, callback){
+
+        //sql query for extracting fine using fine ID
+        const GET_FINE_SQL = `SELECT * from fine where FineID = '${FineId}'`;
 
         //executing sql query
         this.connection.query(GET_FINE_SQL, (err, result)=>{
@@ -82,10 +112,10 @@ class FineManager{
     //this function will change fine status to paid
     //param:
     //FineId: FineId which is to change to paid
-    changeFineToPaid = (fineId)=>{
+    changeFineToPaid(fineId){
 
         //sql query for changing fine status to paid
-        const SET_FINE_TO_PAID_SQL = `UPDATE FINE set paid = 1 WHERE FineID = '${fineId}`
+        const SET_FINE_TO_PAID_SQL = `UPDATE FINE set paid = 1 WHERE FineID = '${fineId}`;
 
         //executing sql query
         this.connection.query(SET_FINE_TO_PAID_SQL, (err)=>{
@@ -111,7 +141,7 @@ let fineManager = null;
 //variable fine Manager
 //connection argument is basically mysql connection object
 module.exports.FineManagerCreator = (connection)=>{
-    fineManager = new FineManager(connection);
+    return new FineManager(connection);
 };
 
 //exporting fineManager variable

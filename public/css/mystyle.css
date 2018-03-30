@@ -178,13 +178,6 @@ header{
     font-family: 'Architects Daughter', cursive;
     font-weight: bold;
 }
-
-@media only screen and (max-width: 500px){
-    #header-login-btn-div a{
-        display: none;
-    }
-}
-
 /* haeder code end */
 
 /* cover style: this area contains cover related style  */

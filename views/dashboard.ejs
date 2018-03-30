@@ -1,234 +1,284 @@
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-	h1{
-		margin-left:100px;
-		margin-top:-190px;
-		text-align:center;
-		font-size:40px;
-	}
-	img{
-		margin:20px;
-	}
-	.form{
-		margin-top:80px;
-		margin-left:250px;
-		font-size:25px;
-		font-size:bold;
-	}
-	input[type="text"] {
-		width:40%;
-		font-size:20px;
-		margin-left:60px;
-		padding:5px;
-		background-color:#d3d3d336;
-	}
-	input[name="button"] {
-		background-color :#4F6F69 ;
-		color: white;
-		padding:9px;
-		border:none;
-		text-decoration: none;
-		display: inline-block;
-		font-size: 19px;
-		margin: 4px 15px;
-		margin-left:120px;
-		border-radius: 3px;
-		cursor: pointer;
-		width:25%;
-	}
-	input[name="button"]:hover{
-		opacity:0.8;
-	}
-	input[type="checkbox"] {
-		width:20px;
-		height:20px;
-		cursor:pointer;
-		margin-right:10px;
-		font-size:25px;
-	}
-	.imgcontainer {
-		text-align: center;
-		margin: 24px 0 12px 0;
-		position: relative;
-	}
-	.avatar {
-		width: 200px;
-		height:200px;
-		border-radius: 50%;
-	}
-	.modal {
-    position: fixed;
-	display:none;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.4);
-	}
-/* Modal Content Box */
-	.modal-content {
-		background-color: #fefefe;
-		margin: 4% auto 15% auto;
-		border: 1px solid #888;
-		width: 40%; 
-		padding-bottom: 30px;
-		padding-left: 40px;
-	}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--
+    importing jquery cdn
+    -->
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous">
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
 
-/* The Close Button (x) */
-	.close {
-		position: absolute;
-		right: 25px;
-		top: 0;
-		color: #000;
-		font-size: 35px;
-		font-weight: bold;
-	}
-	.close:hover,.close:focus {
-		color: red;
-		cursor: pointer;
-	}
+        header {
+            text-align: center;
+            font-size: 25px;
+            color: antiquewhite;
+            background-color: #212121;
+            padding: 10px;
+            box-shadow: 5px 5px 25px 0 rgba(46, 61, 73, .2);
+        }
 
-/* Add Zoom Animation */
-	.animate {
-		animation: zoom 0.6s;
-	}
-	@keyframes zoom {
-		from {transform: scale(0)} 
-		to {transform: scale(1)}
-	}
-	.button {
-		background-color: #4CAF50; /* Green */
-		border: none;
-		color: white;
-		padding: 16px 32px;
-		text-align: center;
-		text-decoration: none;
-		display: inline-block;
-		font-size: 16px;
-		margin: 4px 2px;
-		-webkit-transition-duration: 0.4s; /* Safari */
-		transition-duration: 0.4s;
-		cursor: pointer;
-	}
-	.button1 {
-		background-color: white;
-		color: black;
-		border: 2px solid #4CAF50;
-	}
+        body {
+            background-color: #f7f7f7;
+            text-align: center;
+            display: block;
+        }
 
-	.button1:hover {
-		background-color: #4CAF50;
-		color: white;
-	}
+        #fine-form{
 
-	.button2 {
-		background-color: white;
-		color: black;
-		border: 2px solid #008CBA;
-	}
-	.button2:hover {
-		background-color: #008CBA;
-		color: white;
-	}
-	@media only screen and (max-width:768px) {
-	h1 {
-		font-size:25px;
-		text-align:center;
-		margin-top:-105px;
-		margin-right:0px;
-	}
-	img {
-		height:110px;
-		width:110px;
-		margin:5px;
-		margin-right:0px;
-	}
-	input[type="text"] {
-		width:80%;
-		height:7%;
-		font-size:20px;
-		margin-left:0px;
-	}
-	.form {
-		margin-left:50px;
-		font-size:20px;
-	}
-	h2 {
-		font-size:25px;
-	}
-	input[name="button"] {
-		display:block;
-		width:90%;
-		margin-left:10px;
-		margin-bottom:15px;
-		font-size:22px;
-	}
-	}
-</style>
+            font-size: 17px;
+            background-color: white;
+            width: 80vw;
+            display: inline-block;
+            text-align: left;
+            box-shadow: 5px 5px 25px 0 rgba(46, 61, 73, .2);
+        }
+
+        #form-container{
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        #form-inner-area{
+            margin: 5px;
+            padding: 30px;
+            border: solid 1px #757575;
+        }
+
+        input[type="text"] {
+            width: 40%;
+            font-size: 20px;
+
+            padding: 5px;
+            background-color: #d3d3d336;
+        }
+
+        input[name="button"] {
+            background-color: #4F6F69;
+            color: white;
+            padding: 9px;
+            border: none;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 19px;
+
+            border-radius: 3px;
+            cursor: pointer;
+            width: 25%;
+        }
+
+        input[name="button"]:hover {
+            opacity: 0.8;
+        }
+
+        input[type="checkbox"] {
+            padding: 10px;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            font-size: 25px;
+        }
+
+        #modal {
+            position: fixed;
+            display: none;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        /* Modal Content Box */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 4% auto 15% auto;
+            border: 1px solid #888;
+            width: 40%;
+            padding-bottom: 30px;
+            padding-left: 40px;
+        }
+
+        /* The Close Button (x) */
+        .close {
+            position: absolute;
+            right: 25px;
+            top: 0;
+            color: #000;
+            font-size: 35px;
+            font-weight: bold;
+        }
+
+        .close:hover, .close:focus {
+            color: red;
+            cursor: pointer;
+        }
+
+        /* Add Zoom Animation */
+        .animate {
+            animation: zoom 0.6s;
+        }
+
+        @keyframes zoom {
+            from {
+                transform: scale(0)
+            }
+            to {
+                transform: scale(1)
+            }
+        }
+
+        .button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 16px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
+
+        .button1 {
+            background-color: white;
+            color: black;
+            border: 2px solid #4CAF50;
+        }
+
+        .button1:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .button2 {
+            background-color: white;
+            color: black;
+            border: 2px solid #008CBA;
+        }
+
+        .button2:hover {
+            background-color: #008CBA;
+            color: white;
+        }
+    </style>
+    <script>
+        let fineAmount = 0;
+        let fineDes = 'FINE'
+
+        function changeFineAmount(amount, desciption, checkbox) {
+            if (checkbox.is(':checked')) {
+                fineAmount += parseInt(amount);
+            } else {
+                fineAmount -= parseInt(amount);
+            }
+            console.log(fineAmount)
+        }
+
+        function onFormSubmit() {
+            const date = new Date();
+            document.getElementById('modal').style.display = 'block';
+            console.log(`${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`)
+            $("#vehicleNoDisplay").val($("#vehicleNo").val());
+            $("#dateDisplay").val(`${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`);
+            $("#timeDisplay").val(`${date.getHours()}:${date.getMinutes()}`);
+            $("#amount").val(fineAmount);
+        }
+
+        function setFine() {
+            $("#setFineBtn").attr("disabled", "disabled");
+            $.post("setFine", {
+                vehicleNo: $("#vehicleNo").val(),
+                amount: fineAmount,
+                description: $("#description").val()
+            }, (data, status) => {
+                if (status === 'success') {
+                    document.getElementById('modal').style.display = 'none';
+                    alert('fine added');
+                }
+                else{
+                    document.getElementById('modal').style.display = 'none';
+                    alert('unexpected server error')
+                }
+            })
+        }
+    </script>
+
 </head>
 <body>
-	<header>
-	<img src="images/logo.png" alt="logo of ministry of goa" height="150px" width="150px">
-	</header>
-	<h1>Hello <%= uname%> !<br> Enter Details of the Offender</h1>
-	<div class="form">
-	<form>
-		Enter Vehicle number : <input type="text" name="vehicleno" maxlength="8" style="text-transform:uppercase"><br><br>
-		Enter Phone&nbsp;&nbsp;number :   <input type="text" name = "phoneno" maxlength="10"><br><br>
-		Enter Email&nbsp;&nbsp;Address :  <input type="text" name = "vehicleno" maxlength="320">
-		<h2>Select Offence Committed from the following List:</h2>
-		<input type="checkbox"><b>Helmet</b><br><br>
-		<input type="checkbox"><b>Jump Traffic Light</b><br><br>
-		<input type="checkbox"><b>Accident</b><br><br>
-		<input type="checkbox"><b>Expired Insurance</b><br><br>
-		<input type="checkbox"><b>Fitness</b><br><br>
-		<input type="checkbox"><b>No Parking</b><br><br>
-		<input type="checkbox"><b>Drink And Drive</b><br><br>
-		<input type="checkbox"><b>Violate Speed Limit</b><br><br> 
-		<input type="checkbox"><b>No driving License</b><br><br>
-		<input type="reset" value="RESET" name="button">
-		<button name="submit" onclick="document.getElementByClassName('modal').style.display='block'">SUBMIT</button>	
-		<div class="modal">
-	</form>
-			<form class="modal-content animate">
+<header>
+    Hello <%= uname %> !<br> Enter Details of the Offender
+</header>
 
-			<div class="imgcontainer">
-				<span onclick="document.getElementByClassName('modal').style.display='none'" class="close" title="Close PopUp">&times;</span>
-				<img src="logo.png" alt="logo of goa" class="avatar" style="width:75px;height:75px">
-				<h1 style="text-align:center"><u>Challan</u></h1>
-			</div>
+<div class="form" id="form-container">
+    <form id="fine-form">
+        <div id="form-inner-area">
+            <label for="vehicleNo">Enter Vehicle number: </label> <input type="text" name="vehicleno" id="vehicleNo"
+                                                                         maxlength="10" style="text-transform:uppercase"><br><br>
 
-			<div class="container">
-				<label><b>Vehicle Number :</br></label>
-				<label><b>Owner Name :</br></label>
-				<label><b>Chalan Number :</br></label>
-				<label><b>Date :</br></label>
-				<label><b>Time :</br></label>
-				<label><b>Voilation :</br></label>
-				<label><b>Place of Voilation :</br></label>
-				<label><b>Section :</br></label>
-				<label><b>Total Fine Amount :</br></label>
-				<button class="button button1" type="submit">Confirm</button>
-				<button class="button button2" type="cancel">Back</button>
-			</div>
-    
-			</form>
-		</div>
-	<script>
-// If user clicks anywhere outside of the modal, Modal will close
+            <label for="phoneNo">Enter Phone&nbsp;&nbsp;number: </label> <input type="text" name="phoneno" maxlength="10"
+                                                                  id="phoneNo"><br><br>
 
-var modal = document.getElementById('modal-wrapper');
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-</script>
+            Enter Email&nbsp;&nbsp;Address : <input type="text" name="email" id="email" maxlength="320"><br><br>
+
+            Offence description : <input type="text" name="description" maxlength="20" id="description"><br><br>
+
+            <h2>Select Offence Committed from the following List:</h2>
+            <input type="checkbox" onclick="changeFineAmount('100', 'Helmet',$(this))"><b>Helmet</b><br><br>
+            <input type="checkbox" onclick="changeFineAmount('100', 'Jump Traffic Light' , $(this))"><b>Jump Traffic
+                Light</b><br><br>
+            <input type="checkbox" onclick="changeFineAmount('100', 'Accident',$(this))"><b>Accident</b><br><br>
+            <input type="checkbox" onclick="changeFineAmount('100','Expired Insurance', $(this))"><b>Expired
+                Insurance</b><br><br>
+            <input type="checkbox" onclick="changeFineAmount('100','Fitness', $(this))"><b>Fitness</b><br><br>
+            <input type="checkbox" onclick="changeFineAmount('100','No Parking', $(this))"><b>No Parking</b><br><br>
+            <input type="checkbox" onclick="changeFineAmount('100','Drink And Drive',$(this))"><b>Drink And
+                Drive</b><br><br>
+            <input type="checkbox" onclick="changeFineAmount('100','Violate Speed Limit',$(this))"><b>Violate Speed
+                Limit</b><br><br>
+            <input type="checkbox" onclick="changeFineAmount('100','No driving License',$(this))"><b>No driving
+                License</b><br><br>
+            <input type="reset" value="RESET" name="button">
+            <input type="button" value="submit" onclick="onFormSubmit()">
+        </div>
+    </form>
+    <div id="modal">
+        <form class="modal-content animate">
+            <div class="container">
+                <label><b>Vehicle Number :</br></label>
+                <input readonly id="vehicleNoDisplay" maxlength="10"/><br><br>
+                <label><b>Date :</br></label>
+                <input readonly id="dateDisplay"/><br><br>
+                <label><b>Time :</br></label>
+                <input readonly id="timeDisplay"/><br><br>
+                <label><b>Total Fine Amount :</br></label>
+                <input readonly id="amount"/><br><br>
+                <button class="button button1" id="setFineBtn" onclick="setFine()">Confirm</button>
+                <button class="button button2">Back</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        // If user clicks anywhere outside of the modal, Modal will close
+
+        var modal = document.getElementById('modal-wrapper');
+        window.onclick = function (event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 </div>
 </body>
 </html>

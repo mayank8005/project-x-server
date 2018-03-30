@@ -10,6 +10,9 @@ const index = require('./routes/index');
 const users = require('./routes/users');
 const login = require('./routes/login');
 const dashboard = require('./routes/dashboard');
+const userboard = require('./routes/userboard');
+const setFine = require('./routes/setFine');
+const fine = require('./routes/fine');
 
 const app = express();
 
@@ -36,6 +39,9 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/login', login);
 app.use('/dashboard', dashboard);
+app.use('/userboard', userboard);
+app.use('/setFine', setFine);
+app.use('/fine', fine);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- awesome fonts -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <!-- adding project stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- adding google font -->
+    <link href="https://fonts.googleapis.com/css?family=Slackey" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Forum" rel="stylesheet">
+
+    <style>
+        /* removing unwanted padding and margin */
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/* main body styling */
+body{
+    background-color: #757575;
+}
+
+.main-container{
+    background-color: #f7f7f7;
+    height: 100vh;
+    margin-left: 60px;
+    margin-right: 60px;
+    overflow: auto;
+}
+
+/* header style */
+header{
+    background-color: #212121;
+    color: white;
+    font-family: Verdana,sans-serif;
+    position: fixed;
+    text-align: center;
+    z-index: 8000;
+    top:0;
+    right: 0;
+    left: 0;
+    width: 100vw;
+    font-weight: bolder;
+    box-shadow: 0 1px 20px rgba(46, 61, 73, .2);
+    height: 70px;
+}
+
+header h1{
+    font-size: 27px;
+    padding: 10px;
+}
+
+@media only screen and (max-width: 340px){
+    header{
+        font-size: small;
+    }
+}
+/* styling for form section */
+.labels{
+    width: 130px !important;
+}
+#form-section{
+    position: absolute;
+    top: 200px;
+    right: 0;
+    left: 0;
+    min-height: 300px;
+    width: 100vw;
+    background-color: #fff;
+    box-shadow: 0 1px 20px rgba(46, 61, 73, .2);
+}
+
+#form-container{
+    margin: 5px;
+    min-height: 300px;
+    border: solid 1px #757575;
+    padding: 10px;
+}
+
+.form-header{
+    color: #757575;
+    text-align: center;
+    padding: 10px;
+    font-family: 'Forum', cursive;
+}
+
+.form-sets{
+    border: 0;
+}
+
+.form-options{
+    color: #757575;
+    text-align: center;
+    padding: 10px;
+    font-family: 'Forum', cursive;
+}
+
+.form-entry{
+    display: inline;
+    padding: 5px;
+}
+
+input{
+    color: #212121;
+}
+
+.form-entry input[type="number"]{
+    width: 50px;
+}
+
+@media only screen and (max-width: 450px){
+    .form-options .form-entry{
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 500px){
+    #form-section{
+        top: 150px;
+    }
+}
+
+.form-submit-pane a{
+    color: #757575;
+    font-weight: bold;
+    font-size: 21px;
+    border: solid 1px #757575;
+    border-radius: 25px;
+    padding: 5px;
+}
+
+
+    </style>
+
+    <title>Project X</title>
+</head>
+<body>
+    <div class="main-container">
+        <header>
+            <h1>USER PANEL</h1>
+        </header>
+
+        <!-- section for all type of forms like type of graph selection , value entry etc -->
+        <section id="form-section">
+            <div id="form-container">
+
+                <div id="form">
+                    <!-- header of form-->
+                    <div class="form-header">
+                        <h2>Fine Info</h2>
+                    </div>
+                    <div class="form-options">
+                        <!-- div to take each entries -->
+                        <div id="pie-entries">
+                            <fieldset class="form-sets">
+                                <div class="form-entry">
+                                    <label for="vehicleNo" class="labels">Name: </label>
+                                    <input id="vehicleNo" type="text" readonly size="36" value="<%=vehicleNo%>">
+                                </div>
+                                <br><br>
+                                <div class="form-entry">
+                                    <label for="challanNo" class="labels">Challan No: </label>
+                                    <input id="challanNo" type="text" readonly size="36" value="<%=FineID%>">
+                                </div>
+                                <br><br>
+                                <div class="form-entry">
+                                    <label for="officer-id" class="labels">officer ID: </label>
+                                    <input id="officer-id" type="text" readonly size="36" value="<%=officerID%>">
+                                </div>
+                                <br><br>
+                                <div class="form-entry">
+                                    <label for="offence" class="labels" >offence: </label>
+                                    <input id="offence" type="text" readonly size="36" value="<%=description%>">
+                                </div>
+                                <br><br>
+                                <div class="form-entry">
+                                    <label for="amount" class="labels" >amount: </label>
+                                    <input id="amount" type="text" readonly size="36" value="<%=amount%>">
+                                </div>
+                                <br><br>
+                            </fieldset>
+                        </div>
+                        <!-- submit and back button -->
+                        <div class="form-submit-pane">
+                            <a >Pay</a>
+                            <a class="fa fa-arrow-left" href="/userboard?vehicleNo=<%=vehicleNo%>"></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- pie form ends -->
+            </div>
+        </section>
+    </div>
+
+    
+</body>
+</html>

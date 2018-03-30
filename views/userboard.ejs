@@ -1,0 +1,124 @@
+<html>
+	<head>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <style>
+
+         *{
+             margin: 0;
+             padding: 0;
+         }
+
+         .title{
+             background-color: #212121;
+             color: antiquewhite;
+             text-align: center;
+         }
+	    .content {
+            border-left-style: solid;
+            border-left-color: #757575;
+            border-left-width: 5px;
+            background-color: white;
+            box-shadow: 5px 5px 25px 0 rgba(46,61,73,.2);
+			width:90%;
+			height:20%;
+			margin-left:10px;
+			margin-bottom:20px;
+			padding-left: 20px;
+			padding-top: 0;
+            padding: 15px;
+		}
+		.para {
+		    font-size:20px;
+			font-weight:bold;
+			margin-bottom:0.25px;
+		}
+		span {        
+    		margin-left:80%;
+			padding:10px;
+			font-size:20px;
+			width:12%;
+			margin-top:-50px;
+		}
+		h1 {
+			padding-left:70px;
+			padding-bottom:30px;
+			padding-top:30px;
+            background-color: white;
+            margin-bottom: 40px;
+            box-shadow: 5px 5px 25px 0 rgba(46,61,73,.2);
+            font-size: 30px;
+            margin-top: 0;
+        }
+		.content:hover{
+				-ms-transform: scale(1.03);
+    			-webkit-transform: scale(1.03);
+    			transform: scale(1.03);
+		}
+		body {
+			background-color: #f7f7f7;
+		}
+		a{
+			text-decoration:none;
+            color: #757575#;
+            color: #2e3d49;
+		}
+		a:visited {
+            color: #212121;
+			margin-bottom:0.25px;
+		}
+		a:link {
+            color: #212121;
+			margin-bottom:0.25px;
+		}
+		a:hover{
+            color: rgb(2, 179, 228);
+		}
+		@media only screen and (max-width:768px) { 
+		span {         
+			font-size:12px;
+			width:24%;
+			padding:3px;
+			margin-left:0;
+			margin-top:10px;
+		}
+		.para {
+		    font-size:4vw;
+			margin-left:5px;
+		}
+		.content {
+			width:80%;
+			height:20%;
+		}
+
+	}
+	 </style>	
+	</head>
+	<body>
+		<h1 class="title"><B>LIST  OF  FINES</B></h1>
+
+        <% if(fines.length === 0 || !fines) {%>
+        <div class="content">
+            <p class="para"> No record found </p>
+        </div>
+        <% }else{%>
+            <% for( i=0; i<fines.length; i++){%>
+
+                <div class="content">
+                    <div>
+                        <p class="para"><a href="fine?id=<%=fines[i].FineID%>"> <%= fines[i].description%> </p>
+                        <script>
+                            document.write(Date().fontcolor("gray").italics());
+                        </script>
+                        <% if( fines[i].paid === 0){%>
+                            <span class="w3-tag w3-red">PENDING</span>
+                        <%}else{%>
+                            <span class="w3-tag w3-green">PAID</div><br><br><br><br>
+                        <%}%>
+                    </div>
+                </div>
+
+            <%}%>
+        <% }%>
+	</body>
+</html>
