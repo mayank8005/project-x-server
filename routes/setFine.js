@@ -3,11 +3,14 @@ const router = express.Router();
 
 //requiring fine manager module
 const fineManagerModule = require('../project_modules/FineManager');
+const userModule = require('../project_modules/Users');
+
 
 router.post('/', (req, res)=>{
 
     //extracting Fine manager object
     const fineManager = fineManagerModule.fineManager;
+    const userManager = userModule.userManager;
 
     //extracting username in session
     uname = req.session.uname;
@@ -16,6 +19,8 @@ router.post('/', (req, res)=>{
     const vehicleNo = req.body.vehicleNo;
     const description = req.body.description;
     const amount = req.body.amount;
+    const email =req.body.email;
+    const name = req.body.name;
 
     //checking for session variable and fine manager object for error
     if(!fineManager || !uname){
@@ -38,6 +43,7 @@ router.post('/', (req, res)=>{
     fineManager.addFine(vehicleNo, amount, description, uname, (result)=>{
        if(result){
            res.status(200).send('success');
+           userManager.notifyEmailUser(email, vehicleNo, description, amount, name);
        }else{
            res.status(500).send('server or database error');
        }

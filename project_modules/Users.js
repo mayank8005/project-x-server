@@ -1,3 +1,6 @@
+const nodemailer = require('nodemailer');
+const emailTransporter = require('../helper/emailCredentials');
+
 /*
 This class contain function related to vehicle no like notification and fetching vehicle no info etc
  */
@@ -30,6 +33,43 @@ class Users{
 
              //passing on result to callback
              callback(result);
+         });
+     }
+
+     notifyEmailUser(email, vehicleNo, description, amount, name){
+
+         const transporter = emailTransporter.transporter;
+
+         const mailOptions = {
+             from: 'itrack2k18@gmail.com',
+             to: email,
+             subject: 'regarding your e-challan',
+             text: `
+                Dear ${name},
+                    You have issued a e-challan for ${description} on of rs ${amount} on ${'30/3/2018'}. To proceed with your e-challan visit:  
+                    http://localhost:3000/userboard?vehicleNo=${vehicleNo} 
+                    details: 
+                    
+                    name: ${name}
+                    
+                    vehicle no: ${vehicleNo}
+                    
+                    description: ${description}
+                    
+                    amount: ${amount}                   
+                    
+                    In case of queries please mail us on: iTrack2k18@gmail.com                    
+                    Regards,
+                    iTrack Team
+             `
+         };
+
+         transporter.sendMail(mailOptions, function(error, info){
+             if (error) {
+                 console.log(error);
+             } else {
+                 console.log('Email sent: ' + info.response);
+             }
          });
      }
 }

@@ -178,11 +178,8 @@
         }
     </style>
     <script>
-        let ipc = <%=IPCdata%>
-            console.log(ipc)
         let fineAmount = 0;
         let fineDes = 'FINE'
-        let ipcArr =
 
         function changeFineAmount(amount, desciption, checkbox) {
             if (checkbox.is(':checked')) {
@@ -230,7 +227,9 @@
             $.post("setFine", {
                 vehicleNo: $("#vehicleNo").val(),
                 amount: fineAmount,
-                description: $("#description").val()
+                description: $("#description").val(),
+                email: $("#email").val(),
+                name: $("#name").val(),
             }, (data, status) => {
                 if (status === 'success') {
                     document.getElementById('modal').style.display = 'none';
