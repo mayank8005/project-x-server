@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
+//requiring 
 /* GET dashboard. */
 router.get('/', function(req, res, next) {
 
@@ -17,7 +18,7 @@ router.get('/', function(req, res, next) {
         return false;
     }
     //else rendering dashboard
-    res.render('dashboard', {uname: uname});
+    res.render('dashboard', {uname: uname, IPCData: });
 });
 
 module.exports = router;

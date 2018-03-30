@@ -85,6 +85,10 @@
             font-size: 25px;
         }
 
+        input[type="text"]{
+            font-size: 15px;
+        }
+
         #modal {
             position: fixed;
             display: none;
@@ -174,8 +178,11 @@
         }
     </style>
     <script>
+        let ipc = <%=IPCdata%>
+            console.log(ipc)
         let fineAmount = 0;
         let fineDes = 'FINE'
+        let ipcArr =
 
         function changeFineAmount(amount, desciption, checkbox) {
             if (checkbox.is(':checked')) {
@@ -184,6 +191,28 @@
                 fineAmount -= parseInt(amount);
             }
             console.log(fineAmount)
+        }
+
+        function fetchDetails() {
+            const vehicleNo = $("#vehicleNo").val()
+
+            if(!vehicleNo || vehicleNo.length!==10){
+                alert('enter valid vehicle no');
+                return false
+            }
+
+            $.post('fetchVehicle', {
+                vehicleNo: vehicleNo
+            }, (data, status)=>{
+                if(status !== 'success' || data.length === 0){
+                    alert('unable to fetch data or no result found');
+                    return false;
+                }
+                $('#phoneNo').val(data[0].phone)
+                $('#email').val(data[0].email)
+                $('#name').val(data[0].Name)
+                $('#address').val(data[0].address)
+            })
         }
 
         function onFormSubmit() {
@@ -224,13 +253,19 @@
 <div class="form" id="form-container">
     <form id="fine-form">
         <div id="form-inner-area">
-            <label for="vehicleNo">Enter Vehicle number: </label> <input type="text" name="vehicleno" id="vehicleNo"
-                                                                         maxlength="10" style="text-transform:uppercase"><br><br>
+            Vehicle number : <input type="text" name="vehicleno" id="vehicleNo" maxlength="10"
+                                          style="text-transform:uppercase">
+            <input type="button" onclick="fetchDetails()" value="fetch"/>
+            <br><br>
 
-            <label for="phoneNo">Enter Phone&nbsp;&nbsp;number: </label> <input type="text" name="phoneno" maxlength="10"
-                                                                  id="phoneNo"><br><br>
+            Phone&nbsp;&nbsp;number : <input type="text" name="phoneno" maxlength="10" readonly id="phoneNo"><br><br>
 
-            Enter Email&nbsp;&nbsp;Address : <input type="text" name="email" id="email" maxlength="320"><br><br>
+            Email&nbsp;&nbsp;Address : <input type="text" name="email" id="email" maxlength="320" readonly><br><br>
+
+            Offender's Name : <input type="text" name="name" id="name" maxlength="30" readonly><br><br>
+
+            Offender's Address : <input type="text" name="address" id="address" maxlength="100" readonly width="100">
+            <br><br>
 
             Offence description : <input type="text" name="description" maxlength="20" id="description"><br><br>
 

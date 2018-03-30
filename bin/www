@@ -9,6 +9,7 @@ const http = require('http');
 const mysql = require('mysql');
 const authentication = require('../project_modules/Authentication');
 const fineManager = require('../project_modules/FineManager');
+const user = require('../project_modules/Users');
 
 /**
  * creating connection  object for mysql
@@ -39,9 +40,11 @@ databaseConnection.connect(err=>{
 
     console.log('connected to database');
 
-    //creating authentication and Fine manager object and setting it in authentication object variable
+    //creating authentication and Fine manager and user manager object and setting it in authentication object variable
     authentication.authenticationObject = authentication.authenticationObjectCreator(databaseConnection);
     fineManager.fineManager = fineManager.FineManagerCreator(databaseConnection);
+    user.userManager = user.userObjectCreator(databaseConnection);
+
     /**
      * Create HTTP server.
      */

@@ -189,7 +189,9 @@ input{
                         </div>
                         <!-- submit and back button -->
                         <div class="form-submit-pane">
-                            <a >Pay</a>
+                            <%if(paid===0){%>
+                                <a >Pay</a>
+                            <%}%>
                             <a class="fa fa-arrow-left" href="/userboard?vehicleNo=<%=vehicleNo%>"></a>
                         </div>
                     </div>

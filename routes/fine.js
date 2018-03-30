@@ -37,7 +37,9 @@ router.get('/', function(req, res, next) {
                             vehicleNo: result[0].vehicleNumber,
                             amount: result[0].amount,
                             officerID: result[0].officerID,
-                            description: result[0].description});
+                            description: result[0].description,
+                            paid: result[0].paid
+                });
     });
 });
 
