@@ -1,124 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Project X</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project X</title>
 
-  <!-- project main css file -->
-  <link rel="stylesheet" href="css/mystyle.css">
+    <!-- project main css file -->
+    <link rel="stylesheet" href="css/mystyle.css">
 
-  <!-- awesome fonts -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- awesome fonts -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  <!-- google font -->
-  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light+Two" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Coda+Caption:800" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat+Alternates" rel="stylesheet">
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light+Two" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Coda+Caption:800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat+Alternates" rel="stylesheet">
 
-  <!-- importing our project javascript file -->
-  <script src="./javascripts/homePage.js"></script>
+    <!-- importing our project javascript file -->
+    <script src="./javascripts/homePage.js"></script>
 
 </head>
-<body onload = onPageLoad()>
+<body onload=onPageLoad()>
 
 <!-- this set of code will comtain header code -->
 <header>
-  <div id='header-title-div' class="inline-block">
-    <h1 class="inline"> Project <span class="crimson-color">X</span> </h1><!-- Name of the project -->
-  </div>
-  <div id='header-login-btn-div' class="inline-block">
-    <a onclick= openLoginModal()>
-      Login
-    </a>
-  </div>
+    <div id='header-title-div' class="inline-block">
+        <h1 class="inline"> Project <span class="crimson-color">X</span></h1><!-- Name of the project -->
+    </div>
+    <div id='header-login-btn-div' class="inline-block">
+        <a onclick=openLoginModal()>
+            Login
+        </a>
+    </div>
 </header>
 <!-- header area ends -->
 
 <!-- cover element(this area will contain cover of the page) -->
 <section id='cover-section'>
-  <div id='cover-section-container'>
-    <div id='input-container' class="inline-block">
-      <form action="userboard" method="get">
-          <input  type="text"
-                  id='search-reg-input'
-                  class='inline'
-                  name="vehicleNo"
-                  placeholder="Enter registration no here"
-                  maxlength=10
-          />
-          <input type="submit" value="search"/>
-      </form>
+    <div id='cover-section-container'>
+        <div id='input-container' class="inline-block">
+            <form action="userboard" method="get">
+                <input type="text"
+                       id='search-reg-input'
+                       class='inline'
+                       name="vehicleNo"
+                       placeholder="Enter registration no here"
+                       maxlength=10
+                />
+                <input type="submit" value="search"/>
+            </form>
+        </div>
     </div>
-  </div>
 </section>
 <!-- cover area ends -->
 
 <!-- section for login modal form-->
 <section id="id01" class="modal">
 
-  <form class="modal-content animate" action="/login" method="post" >
-    <div class="imgcontainer">
-      <span onclick= closeLoginModal() class="close" title="Close Modal">&times;</span>
-      <img src="./images/loginModal.png" alt="Avatar" class="avatar">
-    </div>
+    <form class="modal-content animate" action="/login" method="post">
+        <div class="imgcontainer">
+            <span onclick=closeLoginModal() class="close" title="Close Modal">&times;</span>
+            <img src="./images/loginModal.png" alt="Avatar" class="avatar">
+        </div>
 
-    <div class="container">
-      <label for="uname"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" id="uname" required>
+        <div class="container">
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="uname" id="uname" required>
 
-      <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
 
-      <button type="submit">Login</button>
-    </div>
+            <button type="submit">Login</button>
+        </div>
 
-    <div class="container" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-      <span class="psw">Forgot <a href="#">password?</a></span>
-    </div>
-  </form>
+        <div class="container" style="background-color:#f1f1f1">
+            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">
+                Cancel
+            </button>
+            <span class="psw">Forgot <a href="#">password?</a></span>
+        </div>
+    </form>
+</section>
+<!-- section for report modal form-->
+<section id="id02" class="modal">
+
+
+
+        <div class="container" style="background-color:#f1f1f1">
+            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">
+                Cancel
+            </button>
+        </div>
+    </form>
 </section>
 <!--section for login modal form ended -->
 
 <!--intro 1(this section contain intro 1 of page)-->
 <section id="intro-1-section" class="intro-section">
-  <div class="intro-section-div">
-    <div class="intro-div-container">
-      <h2>PAY Online</h2>
+    <div class="intro-section-div">
+        <div class="intro-div-container">
+            <h2>PAY Online</h2>
+        </div>
     </div>
-  </div>
-  <div class="intro-section-div">
-    <div class="intro-div-container">
-      Now you can pay your traffic fines Online. Just search for your
-      vehicle registration no and check the pending fines then by simple
-      tap you can pay your fine online
+    <div class="intro-section-div">
+        <div class="intro-div-container">
+            Now you can pay your traffic fines Online. Just search for your
+            vehicle registration no and check the pending fines then by simple
+            tap you can pay your fine online
+        </div>
     </div>
-  </div>
 </section>
 <!--intro 1 end-->
 
 <!--intro 2(this section contain intro 2 of page)-->
 <section id="intro-2-section" class="intro-section">
-  <div class="intro-section-div">
-    <div class="intro-div-container">
-      No Complexity ! we have taken extra care to make the UI super simple
-      no unnessasary web routes, just a simple tap for everthing.
+    <div class="intro-section-div">
+        <div class="intro-div-container">
+            No Complexity ! we have taken extra care to make the UI super simple
+            no unnessasary web routes, just a simple tap for everthing.
+        </div>
     </div>
-  </div>
-  <div class="intro-section-div">
-    <div class="intro-div-container">
-      <h2>Simplicity<h2>
+    <div class="intro-section-div">
+        <div class="intro-div-container">
+            <h2>Simplicity</h2>
+        </div>
     </div>
-  </div>
 </section>
 <!--intro 2 end-->
+<section id="report-a-crime-section">
+    <div id="report-a-crime-div" onclick="openReportModal()">Report a Crime</div>
+</section>
 
 <!-- Footer of the page -->
 <footer>
-  &copy; Project X
+    &copy; Project X
 </footer>
 <!-- Footer ends -->
 </body>

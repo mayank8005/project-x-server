@@ -24,6 +24,14 @@ onPageLoad = ()=>{
     /*
         login modal part end
     */
+    var modal2 = document.getElementById('id02');
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target === modal2) {
+            closeReportModal();
+        }
+    }
 };
 
 /*
@@ -38,6 +46,16 @@ openLoginModal = ()=>{
 this function will close login modal
 */
 closeLoginModal = ()=>{
-    var modal = document.getElementById('id01');
+    const modal = document.getElementById('id01');
+    modal.style.display = "none";
+};
+
+openReportModal = ()=>{
+    document.getElementById('id02').style.display='block'
+};
+
+
+closeReportModal = ()=>{
+    const modal = document.getElementById('id02');
     modal.style.display = "none";
 };

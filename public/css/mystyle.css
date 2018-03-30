@@ -301,6 +301,28 @@ header{
 }
 /* intro sections end */
 
+/* report a crime section */
+
+#report-a-crime-section{
+    background-color: #455A64;
+    height: 50vh;
+    color: #840732;
+    border-bottom: solid 2px #790808;
+    border-top: solid 2px #790808;
+    text-align: center;
+    padding: auto;
+    vertical-align: middle;
+}
+
+#report-a-crime-div{
+    margin-top: 20vh;
+    vertical-align: middle;
+    font-family: 'Shadows Into Light Two', cursive;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+/* report a crime section */
 /*styling footer */
 footer{
     box-shadow: 0 1px 20px rgba(46, 61, 73, .2);
