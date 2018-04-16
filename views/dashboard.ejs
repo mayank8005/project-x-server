@@ -176,6 +176,15 @@
             background-color: #008CBA;
             color: white;
         }
+
+        @media only screen and (max-width: 500px){
+            .form-input{
+                width: 100% !important;
+            }
+            .display-input{
+                width: 90% !important;
+            }
+        }
     </style>
     <script>
         let fineAmount = 0;
@@ -253,20 +262,25 @@
     <form id="fine-form">
         <div id="form-inner-area">
             Vehicle number : <input type="text" name="vehicleno" id="vehicleNo" maxlength="10"
-                                          style="text-transform:uppercase">
+                                          style="text-transform:uppercase" class="form-input">
             <input type="button" onclick="fetchDetails()" value="fetch"/>
             <br><br>
 
-            Phone&nbsp;&nbsp;number : <input type="text" name="phoneno" maxlength="10" readonly id="phoneNo"><br><br>
+            Phone&nbsp;&nbsp;number : <input type="text" class="form-input"
+                                             name="phoneno" maxlength="10" class="" readonly id="phoneNo"><br><br>
 
-            Email&nbsp;&nbsp;Address : <input type="text" name="email" id="email" maxlength="320" readonly><br><br>
+            Email&nbsp;&nbsp;Address : <input class="form-input"
+                                              type="text" name="email" id="email" maxlength="320" readonly><br><br>
 
-            Offender's Name : <input type="text" name="name" id="name" maxlength="30" readonly><br><br>
+            Offender's Name : <input class="form-input"
+                                     type="text" name="name" id="name" maxlength="30" readonly><br><br>
 
-            Offender's Address : <input type="text" name="address" id="address" maxlength="100" readonly width="100">
+            Offender's Address : <input type="text" name="address" id="address" class="form-input"
+                                        maxlength="100" readonly width="100">
             <br><br>
 
-            Offence description : <input type="text" name="description" maxlength="20" id="description"><br><br>
+            Offence description : <input type="text" name="description" class="form-input"
+                                         maxlength="20" id="description"><br><br>
 
             <h2>Select Offence Committed from the following List:</h2>
             <input type="checkbox" onclick="changeFineAmount('100', 'Helmet',$(this))"><b>Helmet</b><br><br>
@@ -291,13 +305,13 @@
         <form class="modal-content animate">
             <div class="container">
                 <label><b>Vehicle Number :</br></label>
-                <input readonly id="vehicleNoDisplay" maxlength="10"/><br><br>
+                <input readonly id="vehicleNoDisplay" class="display-input" maxlength="10"/><br><br>
                 <label><b>Date :</br></label>
-                <input readonly id="dateDisplay"/><br><br>
+                <input readonly id="dateDisplay" class="display-input"/><br><br>
                 <label><b>Time :</br></label>
-                <input readonly id="timeDisplay"/><br><br>
+                <input readonly id="timeDisplay" class="display-input"/><br><br>
                 <label><b>Total Fine Amount :</br></label>
-                <input readonly id="amount"/><br><br>
+                <input readonly id="amount" class="display-input"/><br><br>
                 <button class="button button1" id="setFineBtn" onclick="setFine()">Confirm</button>
                 <button class="button button2">Back</button>
             </div>
